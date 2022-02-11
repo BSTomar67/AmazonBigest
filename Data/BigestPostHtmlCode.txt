@@ -1,0 +1,17 @@
+<!-- wp:heading {"level":4} -->
+<h4>PRODUCTNUMBER. PRODUCTNAME</h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"left"} -->
+<p class="has-text-align-left">PRODUCTDISCRIPTION</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"align":"center","linkDestination":"custom","className":"is-style-default"} -->
+<div class="wp-block-image is-style-default"><figure class="aligncenter">PRODUCTIMAGEURL</a></figure></div>
+<!-- /wp:image -->
+
+<!-- wp:buttons {"align":"wide"} -->
+<div class="wp-block-buttons alignwide"><!-- wp:button {"backgroundColor":"primary","textColor":"luminous-vivid-amber","align":"center","style":{"border":{"radius":"100px"}},"className":"is-style-fill","fontSize":"medium"} -->
+<div class="wp-block-button aligncenter has-custom-font-size is-style-fill has-medium-font-size"><a class="wp-block-button__link has-luminous-vivid-amber-color has-primary-background-color has-text-color has-background" href="PRODUCTBUYNOWLINK" style="border-radius:100px"><b>Buy On Amazon</b></a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->

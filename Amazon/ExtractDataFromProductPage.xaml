@@ -1,0 +1,294 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ExtractDataFromProductPage" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_AmazonProductList" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_AmazonProductWindow" Type="InArgument(ui:UiElement)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>984,1918</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ExtractDataFromProductPage_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="36">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="22">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ExtractDataFromProductPage" sap:VirtualizedContainerService.HintSize="656,3207" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="AmazonProductList" />
+      <Variable x:TypeArguments="ui:UiElement" Name="AmazonProductWindow" />
+      <Variable x:TypeArguments="x:String" Name="FinalHtmlCode" />
+      <Variable x:TypeArguments="x:String" Name="ProductName" />
+      <Variable x:TypeArguments="x:String" Name="ProductDiscription" />
+      <Variable x:TypeArguments="x:String" Name="ProductImageCode" />
+      <Variable x:TypeArguments="x:String" Name="BuyNowButtonLink" />
+      <Variable x:TypeArguments="x:String" Name="BuyOnAmazonButtonLink" />
+      <Variable x:TypeArguments="x:String" Name="BigestPostHtmlCodeFormat" />
+      <Variable x:TypeArguments="x:Int32" Name="Counter">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:Int32" Value="1" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:Int32" Name="AmazonProductNumber" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign sap:VirtualizedContainerService.HintSize="614,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataTable">[AmazonProductList]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataTable">[in_AmazonProductList]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="614,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="ui:UiElement">[AmazonProductWindow]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="ui:UiElement">[in_AmazonProductWindow]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:WriteTextFile DisplayName="Write Text File" FileName="Data\HtmlFormatFile.txt" sap:VirtualizedContainerService.HintSize="614,134" sap2010:WorkflowViewState.IdRef="WriteTextFile_3">
+      <ui:WriteTextFile.Text>
+        <InArgument x:TypeArguments="x:String">
+          <Literal x:TypeArguments="x:String" Value="" />
+        </InArgument>
+      </ui:WriteTextFile.Text>
+    </ui:WriteTextFile>
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[AmazonProductList]" DisplayName="For Each Product in Data Table" sap:VirtualizedContainerService.HintSize="614,2741" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="Product" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="580,2620" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[Counter&lt;6]" sap:VirtualizedContainerService.HintSize="538,2528" sap2010:WorkflowViewState.IdRef="If_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="502,2338" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Amazon.com: Sassy Stacks of Circles Stacking Ring STEM Learning Toy, Age 6+ Mont" sap:VirtualizedContainerService.HintSize="460,1972" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" ScopeGuid="5cd64ebe-5eff-4b9a-b3aa-39284fbecaf9" Version="V1">
+                    <uix:NApplicationCard.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="426,1755" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign sap:VirtualizedContainerService.HintSize="384,61" sap2010:WorkflowViewState.IdRef="Assign_5">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Int32">[AmazonProductNumber]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Int32">[Counter]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <uix:NGetText DisplayName="Get Product Name" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="NGetText_9" ScopeIdentifier="5cd64ebe-5eff-4b9a-b3aa-39284fbecaf9" Version="V1">
+                            <uix:NGetText.Target>
+                              <uix:TargetAnchorable BrowserURL="https://www.amazon.com/InnoGear-Aromatherapy-Essential-Ultrasonic-Humidifier/dp/B00V9JP8EE/ref=sr_1_1?crid=3ADE30GVKSQRE&amp;keywords=Essential+Oil+Diffuser&amp;qid=1644174784&amp;sprefix=essential+oil+diffuser%2Caps%2C1297&amp;sr=8-1" DesignTimeRectangle="499, 255, 552, 158" ElementType="Text" FriendlyName="'InnoGear Essential'" FullSelectorArgument="&lt;webctrl id='productTitle' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='productTitle' tag='SPAN' type='' /&gt;" Guid="d4623c69-e794-44a0-a000-5df5c14b78d8" ImageBase64="" InformativeScreenshot="fd627477b3abc01620354fb7f84e0a8f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='https://images-na.ssl-images-amazon.com/images/I/11EIQ5IGqaL._RC%7C01ZTHTZObnL.css,41wZkyTaWoL.css,31Y8m1dzTdL.css,013z33uKh2L.css,017DsKjNQJL.css,0131vqwP5UL.css,41EWOOlBJ9L.css,11TIuySqr6L.css,01ElnPiDxWL.css,11bGSgD5pDL.css,01Dm5eKVxwL.css,01IdKcBuAdL.c*' title='Amazon.com : InnoGear Essential Oil Diffuser, Upgraded Diffusers for Essential Oils Aromatherapy Diffuser Cool Mist Humidifier with 7 Colors Lights 2 Mist Mode Waterless Auto Off for Home Office Room, Basic White : Health &amp;amp; Household' /&gt;" SearchSteps="FuzzySelector" />
+                            </uix:NGetText.Target>
+                            <uix:NGetText.Text>
+                              <OutArgument x:TypeArguments="x:String">[ProductName]</OutArgument>
+                            </uix:NGetText.Text>
+                          </uix:NGetText>
+                          <uix:NGetText DisplayName="Get Product Discription" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="NGetText_10" ScopeIdentifier="5cd64ebe-5eff-4b9a-b3aa-39284fbecaf9" Version="V1">
+                            <uix:NGetText.Target>
+                              <uix:TargetAnchorable BrowserURL="https://www.amazon.com/InnoGear-Aromatherapy-Essential-Ultrasonic-Humidifier/dp/B00V9JP8EE/ref=sr_1_1?crid=3ADE30GVKSQRE&amp;keywords=Essential+Oil+Diffuser&amp;qid=1644174784&amp;sprefix=essential+oil+diffuser%2Caps%2C1297&amp;sr=8-1" DesignTimeRectangle="499, 260, 570, 323" FriendlyName="'About this'" FullSelectorArgument="&lt;webctrl id='feature-bullets' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl id='feature-bullets' tag='DIV' type='' aaname='                                                            ' /&gt;" Guid="1d19fc44-ccac-4175-ac65-fc471b62d740" InformativeScreenshot="61b774dd43d6d60b77ea2dff12215dd1.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='https://images-na.ssl-images-amazon.com/images/I/11EIQ5IGqaL._RC%7C01ZTHTZObnL.css,41wZkyTaWoL.css,31Y8m1dzTdL.css,013z33uKh2L.css,017DsKjNQJL.css,0131vqwP5UL.css,41EWOOlBJ9L.css,11TIuySqr6L.css,01ElnPiDxWL.css,11bGSgD5pDL.css,01Dm5eKVxwL.css,01IdKcBuAdL.c*' title='Amazon.com : InnoGear Essential Oil Diffuser, Upgraded Diffusers for Essential Oils Aromatherapy Diffuser Cool Mist Humidifier with 7 Colors Lights 2 Mist Mode Waterless Auto Off for Home Office Room, Basic White : Health &amp;amp; Household' /&gt;" SearchSteps="FuzzySelector">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                    <uix:Target DesignTimeRectangle="499, 275, 570, 28" FriendlyName="'About this item'" FullSelectorArgument="&lt;webctrl parentid='feature-bullets' tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='feature-bullets' tag='H1' type='' aaname=' About this item ' check:text='About this item' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NGetText.Target>
+                            <uix:NGetText.Text>
+                              <OutArgument x:TypeArguments="x:String">[ProductDiscription]</OutArgument>
+                            </uix:NGetText.Text>
+                          </uix:NGetText>
+                          <uix:NClick ClickType="Single" DisplayName="Click 'Image'" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="NClick_7" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5cd64ebe-5eff-4b9a-b3aa-39284fbecaf9" Version="V1">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://www.amazon.com/Sassy-Stacks-Circles-Stacking-Learning/dp/B07NXDJ52C/ref=rvi_2/138-7774810-6614956?pd_rd_w=7ROrv&amp;pf_rd_p=f5690a4d-f2bb-45d9-9d1b-736fee412437&amp;pf_rd_r=YWYMESMKKPPA65X6080V&amp;pd_rd_r=abf15387-3b56-416b-9970-9a6679aad96d&amp;pd_rd_wg=5rZvy&amp;pd_rd_i=B07NXDJ52C&amp;psc=1" DesignTimeRectangle="213, 132, 60, 15" ElementType="Text" FriendlyName="'Image'" FullSelectorArgument="&lt;webctrl parentid='amzn-ss-image-link' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='amzn-ss-image-link' tag='A' type='' aaname='Image' check:text='Image' /&gt;" Guid="301bbace-7290-44ec-a7ba-0cd2703e18cc" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEAAAAATCAYAAAAgcwuHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJRSURBVFhH7VYxa9tQEPavyNixW7eu3rx59OjNQzBaggoZjCkoEEQolGA8mCw2lGAKwUOHeAg4SLGwkG0FNxFGqdMmjUJNbPwbvt57ejVyUFOimDrBHj54d9/dSff53smx0WSCZcZKgDDnMmElQJhzmRBRAAe5dQ2xvA0nlH85WAkQ5vw37glw1oNSslDtXKJWbiG5qSO+ZaHeD9h5E9X+yM8fkn/fRJr5eayJiu1N63u2DSnPOAO5w6+oUG3lcCD4EQbHbWQ4ryNdPIVx6+dFwXwEOLEQY3ZWQ+qjBXlLn9oJ1YS8rWON2WoPAxbvnlIDLcissVILCYqLbbTRYNyPHjLMlpqQiJfea35u0eHP9o5NvCE7UbBROTB57truGTz+Xo/HfAUQLzlybSSD/INXZoR6gbh1mhiynZrBa0lHv3z+Ty1e+wZVlc6bHXRFfr1IdtbyxYuAxQgwvkJ9z0Bc1vD6nY63EnFCgMYeO2vInbC8QC1e24Wy4fMzeGkCdPebFK9DPrrC4Cf9qrvE3ZuA9Jfr2Vq89neU8nSW26hTHsvluBHTEgELEaBRojMJsNO5ozvvYoc1JQRg+yH1wA4wyv5+SZUddFnz5y5q2oW/WyJgMVegb/tNMh9rVGVNCQEIXqsjtrwB5bMVmADix5eofhBLVeDVdk885/GIKMAccHdL4+vBG4dwQbTafOvHP13M+oeeP/5D8WmNiMUJ8Fc4UOQmMgX2iTSRZAsya6DihsU+Hc9QgGs0DqzpH52k2kbtG+2K0Nin4xkK8H+x5AJM8BvgbPdEWRfVEwAAAABJRU5ErkJggg==" InformativeScreenshot="4f3902497bfc4f1e4092c26a417e928d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='https://images-na.ssl-images-amazon.com/images/I/11EIQ5IGqaL._RC%7C01ZTHTZObnL.css,41wZkyTaWoL.css,31Y8m1dzTdL.css,013z33uKh2L.css,017DsKjNQJL.css,0131vqwP5UL.css,41EWOOlBJ9L.css,11TIuySqr6L.css,01ElnPiDxWL.css,11bGSgD5pDL.css,01Dm5eKVxwL.css,01IdKcBuAdL.c*' title='Amazon.com: Sassy Stacks of Circles Stacking Ring STEM Learning Toy, Age 6+ Months, Multi, 9 Piece Set : Toys &amp;amp; Games' /&gt;" SearchSteps="FuzzySelector, Image">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="175, 132, 38, 15" ElementType="Text" FriendlyName="'Text'" FullSelectorArgument="&lt;webctrl parentid='amzn-ss-text-link' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='amzn-ss-text-link' tag='A' type='' aaname='Text' check:text='Text' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACoAAAATCAYAAADmtp8+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHVSURBVEhL7ZTPS8JgGMf7Kzz2H3jr6q2bx/6DDiESiIeI0WVdoktIdBhBEEh4EQ9B7LZIHQ6lWa4ViivUiYPJ/oZvz7t3ZYrFFmIEHj7w/noePs/eZ++a63n4D6xEF81KdNFMRCt1rO3cfUMVUns6MDw9qLcGlJfRnL3wTESNR4hS3Wd7nwtuHvG5KOmQ+9OBoWnrSFKuZPF1/n5I5l69fMZFhcrMnmXg+KiKxF4ZiUMNl7oN17FQyvNilCE714N8RfNzmpvPkE6qfq64qPlFF4yZnCEJLzo0kM3cISZokK51ZAU6k9JQcjzY1DYbdH5DMtGlcZzGW0ULbq2BRJbniu1ScVTgce1LzgiEFu3e1GitjNxDsBb0tKCyuU0xZX++niYpsQkziPs4t7SrVy64yCxclHBaSPtr9NX0SdzSRc0i67UyRHWAbv8DG/Y42C+piAXy8VMDdhC3dFFXb/h9GBMbkJ+YpAWFnp179hq0m9hK0d5JC0qeF5S9pR+Nxal1vwAWV6Dz6tuXnBEIL+q5uKc+TZAQ2/NJqyh0LEgijVM1FJiEY0JgP1BGg8xegXEHuYNJzGerRGSu6I+MR/zaBxEfcGf42Sa/IbroH7ESXTT/RNTDO9fSJvHtLisVAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NClick ClickType="Single" DisplayName="Click 'Large'" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5cd64ebe-5eff-4b9a-b3aa-39284fbecaf9" Version="V1">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://www.amazon.com/Sassy-Stacks-Circles-Stacking-Learning/dp/B07NXDJ52C/ref=rvi_2/138-7774810-6614956?pd_rd_w=7ROrv&amp;pf_rd_p=f5690a4d-f2bb-45d9-9d1b-736fee412437&amp;pf_rd_r=YWYMESMKKPPA65X6080V&amp;pd_rd_r=abf15387-3b56-416b-9970-9a6679aad96d&amp;pd_rd_wg=5rZvy&amp;pd_rd_i=B07NXDJ52C&amp;psc=1" DesignTimeRectangle="68, 350, 17, 17" FriendlyName="'I'" FullSelectorArgument="&lt;webctrl parentid='amzn-ss-large-image-radio-button' tag='I' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='amzn-ss-large-image-radio-button' tag='I' type='' aaname='' /&gt;" Guid="feb4503d-2184-4d8d-b033-9bc93181c3f8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEVSURBVDhPvZQ7CsJAEIY9voWFkEpILzmAFpJCyAHEA2jQSjQEkkYLdeRbnGUTo3kRPwjL7s78Ow/HkQzA/0UvSSKrMJSp58l4MjEre85/USmapqkRmAeBrKNINtut7OPYrOw55x67Kj5ED8ejzHzfCGR5br7b/WE/PeMeO+zLFER5GUOiQuAb3D2vmbHDvhxxQZSU6gRdsMMePxcrSvGpVVNBBXv83OZZUbrKq13AD3/FipICDegCfm4JrCi/w7apK/jhrwwb6SA1pXuL5fK9awd+ld0HUtidzu9dM7B3U4eCqE5U09oyVbUTBTr7dRFzj13t7Cu8TErUiiZo5KzsOee+HKFSKapQfLqKQO//074MICryAg+onChX38vNAAAAAElFTkSuQmCC" InformativeScreenshot="e2d223c0c9b192c7db20e86c1278df0b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='https://images-na.ssl-images-amazon.com/images/I/11EIQ5IGqaL._RC%7C01ZTHTZObnL.css,41wZkyTaWoL.css,31Y8m1dzTdL.css,013z33uKh2L.css,017DsKjNQJL.css,0131vqwP5UL.css,41EWOOlBJ9L.css,11TIuySqr6L.css,01ElnPiDxWL.css,11bGSgD5pDL.css,01Dm5eKVxwL.css,01IdKcBuAdL.c*' title='Amazon.com: Sassy Stacks of Circles Stacking Ring STEM Learning Toy, Age 6+ Months, Multi, 9 Piece Set : Toys &amp;amp; Games' /&gt;" SearchSteps="FuzzySelector, Image">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="89, 350, 38, 20" ElementType="Text" FriendlyName="'Large'" FullSelectorArgument="&lt;webctrl parentid='amzn-ss-large-image-radio-button' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='amzn-ss-large-image-radio-button' tag='SPAN' type='' aaname='Large' check:text='Large' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACoAAAAYCAYAAACMcW/9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAElSURBVFhH7ZPdDYIwFEbdwDiPcQhxAnEBHUOX0Fd5ZwadQWfgmcea0+QjNw3+AFWj6UkaCr1tT+8tI/cjJNHYJNHY/Ifo5Xp18yzzz2+TRGMzSPR0PrvxZNK0Y1H478Tnq5Vbbzb+O3Gw3e2aWPrZYuGqqvJjzJnOZn6MZ7hnb1E2QEZjyGhjbSpxsON1XftD6J1GXweysSJa6ZGyouE8MkgTVoY+4hwAdBCJQ29RLaZSLvP8rqhi72WY71rHNhvfWzQsj31vm9clo20MEtWlV8YeiVqxMJ5GnxhgHmvrHZ6K6k+0jczY0hNTlmUj1yYKzFP8/nBoRCHcy5YdHoq+k1fKbfmYKBnSHVU17J19xsdEdQ9V2i7ZhK+VvitJNDZJNC7O3QDxZ7/PcUOr1AAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NGetText DisplayName="Get Product Image Code" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="NGetText_11" ScopeIdentifier="5cd64ebe-5eff-4b9a-b3aa-39284fbecaf9" Version="V1">
+                            <uix:NGetText.Target>
+                              <uix:TargetAnchorable BrowserURL="https://www.amazon.com/Sassy-Stacks-Circles-Stacking-Learning/dp/B07NXDJ52C/ref=rvi_2/138-7774810-6614956?pd_rd_w=7ROrv&amp;pf_rd_p=f5690a4d-f2bb-45d9-9d1b-736fee412437&amp;pf_rd_r=YWYMESMKKPPA65X6080V&amp;pd_rd_r=abf15387-3b56-416b-9970-9a6679aad96d&amp;pd_rd_wg=5rZvy&amp;pd_rd_i=B07NXDJ52C&amp;psc=1" DesignTimeRectangle="55, 490, 476, 55" ElementType="InputBox" FriendlyName="'&lt;a href=&quot;https://www.am…'" FullSelectorArgument="&lt;webctrl id='amzn-ss-image-textarea' tag='TEXTAREA' /&gt;" FuzzySelectorArgument="&lt;webctrl id='amzn-ss-image-textarea' tag='TEXTAREA' type='' aaname='' /&gt;" Guid="f3b66ec8-ff29-41df-a598-32341bf01b51" InformativeScreenshot="987ef3a8381f7a7b8b48db68f9ae4069.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='https://images-na.ssl-images-amazon.com/images/I/11EIQ5IGqaL._RC%7C01ZTHTZObnL.css,41wZkyTaWoL.css,31Y8m1dzTdL.css,013z33uKh2L.css,017DsKjNQJL.css,0131vqwP5UL.css,41EWOOlBJ9L.css,11TIuySqr6L.css,01ElnPiDxWL.css,11bGSgD5pDL.css,01Dm5eKVxwL.css,01IdKcBuAdL.c*' title='Amazon.com: Sassy Stacks of Circles Stacking Ring STEM Learning Toy, Age 6+ Months, Multi, 9 Piece Set : Toys &amp;amp; Games' /&gt;" SearchSteps="FuzzySelector">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="55, 460, 476, 20" ElementType="Text" FriendlyName="'Copy the'" FullSelectorArgument="&lt;webctrl parentid='amzn-ss-image-component' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='amzn-ss-image-component' tag='P' type='' aaname='Copy the generated HTML and paste it into the code for your website. ' check:text='Copy the generated HTML and paste it into the code for your website. Learn More' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAeAAAAAYCAYAAAAiYi5VAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAoNSURBVHhe7Zq9il1VGIZzByJ4D3oJouQG7EwqSxMQS2OfVBYmnYJpLJLCxlQ2AzaCBoIhRZQxWCQ2okRBhhAUoiAceTZ5x3ferLXO38w5w+R7YHP2Xuv7X2uvL+dkTs2KoiiKotg41YCLoiiKYgtUAy6KoiiKLVANuCiKoii2QDXgoiiKotgC1YCLoiiKYgs804D39vZmZ86enb3w4ovTxT1j2+LylSvTVfR58uTJ7L0LF2af37jxdOR/7j94MHvzzJnp0/Hxb2/f3l/vvLT+rAHPyDraL6+fPj3Z0nPKHSXb8LkKvbVIRut5FGza3yIQCzER2zJoL7BXj1M+m2KV8/Ko1v/dz+5P13Hh98f/zF65dGe6uHe+vLc3O/XO17M3Pt6d/fX3v09Hj54DDZiDgYPUF4J7HcKbIA/T56UBr9NE1m3ADv5b680avH3u3DNrgTyH3fPUgKnzKs3Baz6KeZkDcdX3w2M5qgN4HVat8ap6J4VV9kOu/6p7KjmODfi1y3dnL1+8MzVchzi33oBbhd/0y5kH02FthuPOOk1ktEZ+0Dq9cfwTB/E4rMHFS5dm586fPzCHT8YXaSxHxaZ9HsYhf1gxr/p++Ppv+h1fhFVrjN7zcF70WHU/OIdhA45rA37r0x8PxEXDZYxraw14mQOBTa6fKP0lYdE4jBljTge5XnC33XpRJCfbyKdNfdMS3DPWmkuwJ9vY83x7dvjkoCIG6WbcPLfmFDv28Ed+7kfyrbyhFxP4HE2Rq3WAKn7Xhd44vrVuDnFeu359ilPxETf57ezsrNSAM2/3iz+tUSt/7EtPci2fyueTq1f35V3O7XB5DYlB4/gg3vTLWMpy30I1/+HevQN5Z9yqC7FIp7X//D3UmOqv8bQNLkNdFQ810jifvgfcl+fdoic7ik05M05MeueXqa/7VfzUT++J7yE+eWfkM+uED+wJ5j2eXo7Iee20fnyOfCp/jalW/oyu4u/Vg3vVjjmPxWvsehonJ89L8/hs1XAe8xrwR1/9On3rbH3z1E/CupCF73/5c2qiyDP+xXd/TPc0z5fevzWNtX5iBjXga7d+mz4lg030P9j5+UAczGNLMehbc8ag8VE+PfYbMEVtHciJbzAtnBaKTxZJm4Zn5pFjYXPBfQOK3Hjo+KK7zZT12JKU1UbjeWRHm0+x69ntKB7lxRig4/Fk3l7zjGEUU/phjlz07Che5vNqvUzuxyEX7HN5LXjZd3d3u3mMcFut2i267uiQT8unaiM/PMsudvxQY065cy9/gL5i49Pn/DnzcPCzSJ3cBrLEq/j1LD3GNZe+PdfEY5Gectez10xz4D6Tnuy82LyGqo2efS7tJC07qhVzik117NlBR3aAHCTrOSoe1SPz9zrP88m42/H/8vF4kNO9/Msm8v4u8Ox6sic95Fo2JJc15NPzGzFqwDQtb5Quq0ZJowOXZYxGq4ZMk6PZaV7PLb+ye+unx5OMN05dapyyIz/I4hf/GQOM8hmxdAP2xQFfEMa12JCbj8MOOb9PcsHTn28+ZNyfb6okN477GdnxHMD1Wv7cVsaeIKtDKPN2OzCKSXN6gZyUFb1x7HudBHlgH3maLj71QrutzGNRpNc6BCDX3WMc+WTMD/pRrRiTXfR6Td1jkT2X417zzqJ18hhdB1LP65Syo1xdtiXndvn0OXR676/rOaPYWv65Z+zRo0fT5yL1Bekxh1xvn2Q8CbL6x5nfQ+boftKn+/H7Fp4XefDLEn545tNrhaxwPeS8Nu4TfX8XhGwyD56f24aW/x6jJsS4NzB9q1QDc5DzBsz/4fIJ2Sih51cNGF3kuaRPA+VZDXjkJ+dgmXycpX6CzoUC5LXhfOHAN64vHJfLORlH2sS3NgT3HJJ5eXzC9cD9jOz4Bk493aderx7As+SwK9uZ9ygmZORDYJe5JOMXvfGWbZB9xllTvvVqPd1W5jECGeXFwYAN5ZC1Y9zX3dfS91bSyke5SE8x8I3DZT0+Ltl3/8rX5bhaNVy0TooLP64Dqed1ylzdTuJ2W3KymzXStchB7oxia9WCe+YfPnw4zaV/t+VgDz3s+z24n6xrC+0TZPSPzlaOnlvm6X7m+URH75Z+WfJP9JRDrx6+H0A25ZO4paM1zJzchsv75fn36DVCNTP9XKtL3zBz/tUP7x56A6bhose3YTVKb8D5jXbUgOflM2LuH2GBj6eMbzjGfcPnhmPRpI9eC20wzac/bMgHMu5vRL4Y7mdkJ3NwPW1c7ltk7GnLnzPvZWJSHK2XImVFbxy/XidBHrLPPQcCLzZybivz6JEx53PWLtfdYxz5ZKz3DTjt5LODvOY8Ftlr+U4WrZPH6DqQel6nlHU7icu25Nwuny0bLVzPGcXW8s89Y61vwCOkh81cT69dxtMCOWzxtw8eW+boftKn+1nEJ3b9my9+8Z//AMBPi4xt5BM5r7FydBuqAX6XpdcIgXFvmk42P3/uNb9lG7Du/Q+yvAGP/OQcjPIZcaABs0gcVr7ZWAA/wHyDaTNosfh0WS2wFk/2XSbxlwR8M4C/YCkr+3p2UhY7/EuO55Ed7n0Dt+x4jp5zxp7xMadapN1RTFl3zfm6CeZaL2BvHPv4xb+DL9lHhtq5f9nKuHtkDrIpH4xrDrzO8pHxtHymXZ5Vc79XPMrd/UlPzzmXz8Ttz2LROqGHPnZdB1LP6+R64Pklbjf1wO1iR3UB5PzZacliOw/5jM1tKh4u7mWDe+jVF1w2a+U+PP8e0s+95TkqVtUKe+TlPpXnIj6RR4Y/iAPs8MsM48JzBK8H917XnFOcgB2elYN8uFzWMPMb0WuEkE2W5qVn5vLb8GE3YECGb6r4A2/AaddjyhhglM+IAw0YfNNxaaM5LJTmWxtB+qmrhXadFthBXxtEmwFy82lDKB5tohZsGsnpLz5zY6UdxkcHICheLs85YweX5V+6bktz7ruXm68Tn9SklXvGL3rjxOI5CGKT/ayB2/K4/GqtOfqaV624wO8B371155s4l6+JUD7oypfktB8Zw5b/NTfgXzrMa1y+vU4u26ofoNeyn+umuBhPnay9aqjaZP1bNQHP/ZubN/f9iVb9ZdNr0cJlvRbzYvMacq+ccq5XX8C36xGn9kmuYWv/J/ht+fMc3R94rJwz+gl4EZ/MEafWoqfTqwfjfFvW2vqcr7nPaVw+c08pJulJTnq9PaYG1/tZlibVGlfz0zh/tayGl81vnQbcappqwMA484pRjTpjEL18RjzTgNeBxecawbwWcJuw8fz/RoqTCYfD6MAuihGcVfPOtKJYlY024G02PXziWwcxL1YdzCefasDFqsz7hlcU67KxBqyfNbb57ZfY9DPKvJ/RipNBNeBiFfSz6+gLRVGsy6E24KIoiqIoFqMacFEURVFsgWrARVEURbEFqgEXRVEUxRaoBlwURVEUG2c2+w9QPfiLffEXUAAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NGetText.Target>
+                            <uix:NGetText.Text>
+                              <OutArgument x:TypeArguments="x:String">[ProductImageCode]</OutArgument>
+                            </uix:NGetText.Text>
+                          </uix:NGetText>
+                          <uix:NClick ClickType="Single" DisplayName="Click 'Text'" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5cd64ebe-5eff-4b9a-b3aa-39284fbecaf9" Version="V1">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://www.amazon.com/Sassy-Stacks-Circles-Stacking-Learning/dp/B07NXDJ52C/ref=rvi_2/138-7774810-6614956?pd_rd_w=7ROrv&amp;pf_rd_p=f5690a4d-f2bb-45d9-9d1b-736fee412437&amp;pf_rd_r=YWYMESMKKPPA65X6080V&amp;pd_rd_r=abf15387-3b56-416b-9970-9a6679aad96d&amp;pd_rd_wg=5rZvy&amp;pd_rd_i=B07NXDJ52C&amp;psc=1" DesignTimeRectangle="175, 132, 38, 15" ElementType="Text" FriendlyName="'Text'" FullSelectorArgument="&lt;webctrl parentid='amzn-ss-text-link' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='amzn-ss-text-link' tag='A' type='' aaname='Text' check:text='Text' /&gt;" Guid="49c41c1d-b0f6-4e43-9354-4b4469a7d1d9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACoAAAATCAYAAADmtp8+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHVSURBVEhL7ZTPS8JgGMf7Kzz2H3jr6q2bx/6DDiESiIeI0WVdoktIdBhBEEh4EQ9B7LZIHQ6lWa4ViivUiYPJ/oZvz7t3ZYrFFmIEHj7w/noePs/eZ++a63n4D6xEF81KdNFMRCt1rO3cfUMVUns6MDw9qLcGlJfRnL3wTESNR4hS3Wd7nwtuHvG5KOmQ+9OBoWnrSFKuZPF1/n5I5l69fMZFhcrMnmXg+KiKxF4ZiUMNl7oN17FQyvNilCE714N8RfNzmpvPkE6qfq64qPlFF4yZnCEJLzo0kM3cISZokK51ZAU6k9JQcjzY1DYbdH5DMtGlcZzGW0ULbq2BRJbniu1ScVTgce1LzgiEFu3e1GitjNxDsBb0tKCyuU0xZX++niYpsQkziPs4t7SrVy64yCxclHBaSPtr9NX0SdzSRc0i67UyRHWAbv8DG/Y42C+piAXy8VMDdhC3dFFXb/h9GBMbkJ+YpAWFnp179hq0m9hK0d5JC0qeF5S9pR+Nxal1vwAWV6Dz6tuXnBEIL+q5uKc+TZAQ2/NJqyh0LEgijVM1FJiEY0JgP1BGg8xegXEHuYNJzGerRGSu6I+MR/zaBxEfcGf42Sa/IbroH7ESXTT/RNTDO9fSJvHtLisVAAAAAElFTkSuQmCC" InformativeScreenshot="1112edd24203a69dae805996976a5636.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='https://images-na.ssl-images-amazon.com/images/I/11EIQ5IGqaL._RC%7C01ZTHTZObnL.css,41wZkyTaWoL.css,31Y8m1dzTdL.css,013z33uKh2L.css,017DsKjNQJL.css,0131vqwP5UL.css,41EWOOlBJ9L.css,11TIuySqr6L.css,01ElnPiDxWL.css,11bGSgD5pDL.css,01Dm5eKVxwL.css,01IdKcBuAdL.c*' title='Amazon.com: Sassy Stacks of Circles Stacking Ring STEM Learning Toy, Age 6+ Months, Multi, 9 Piece Set : Toys &amp;amp; Games' /&gt;" SearchSteps="FuzzySelector, Image">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="213, 132, 60, 15" ElementType="Text" FriendlyName="'Image'" FullSelectorArgument="&lt;webctrl parentid='amzn-ss-image-link' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='amzn-ss-image-link' tag='A' type='' aaname='Image' check:text='Image' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEAAAAATCAYAAAAgcwuHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJWSURBVFhH7VbPa9pwFPev8Lpbj7vt6HG3HetByKUIY9SblMLIyfQypFCEIs1hlDLGZJQxGAwZDBGU/FBSiVkMbqSdLZEG/Bs+e99vUptKtk7naosePpD3/bz3Sd7H50sS/miEZcbKgLjDZcLKgLjDZcKMBlTRSifQ2JbxI5Z/OFgZEHd4OyYM6FbQKksw2z1Yh1komyk0RQmWE4m3cjCdsN7rofs2B5Wd81wRHcMb6w8MGfoW4wTo1Qo6pN36bIx5t16ExvkU1NIRnPNQdwbMx4CGiAaLM2tQixJ08ck4Vnby0AupIC5UcMby+0fUQBY6a6ycg5IhbkOCw7jTCjQWC884r79cC2r3q/zeg3oezXQSyp4M8zgf1O5+xAV/rukxXwPCh/T7MpQof8tfxtojLi3Cpmv3wzrX0r6EE3GlxbVdmAW63iwFZhHsfYozQW1U82+xGAN8F9aBgGaWft0XNMoCcaEB9sEjrtVqsLqIFteuob3Bcifw0Azov3tK+Y+hf+3h7KeL7i5xExOgfnJvanHtHk626fq5BJvqWC3HuYchv8/0WIgBdjlJ+Sm0jRG80xoM1lRoANsP6h92gHPI9ksS6usqvrPmv9Vg1Y1gt8yAhRgwdOSgSXZGjWp8SV6P8UArhVteQOu9FJkA4n0D5qtwqV6Blqsb1k6LGQ2YA3yPj++FH8NFMNQk2voJNN9cvwb5+WUw/oPLm/nTYnEG/BY0LVmailL4imQLMrOOTj8u999xDw1wYR9L4w8dZacI6z81z3APDbhbLNSArm1zxHF3gxF+AUjh95UvL8zeAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NGetText DisplayName="Get Buy on Amazon Button Link " sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="NGetText_12" ScopeIdentifier="5cd64ebe-5eff-4b9a-b3aa-39284fbecaf9" Version="V1">
+                            <uix:NGetText.Target>
+                              <uix:TargetAnchorable BrowserURL="https://www.amazon.com/Sassy-Stacks-Circles-Stacking-Learning/dp/B07NXDJ52C/ref=rvi_2/138-7774810-6614956?pd_rd_w=7ROrv&amp;pf_rd_p=f5690a4d-f2bb-45d9-9d1b-736fee412437&amp;pf_rd_r=YWYMESMKKPPA65X6080V&amp;pd_rd_r=abf15387-3b56-416b-9970-9a6679aad96d&amp;pd_rd_wg=5rZvy&amp;pd_rd_i=B07NXDJ52C&amp;psc=1" DesignTimeRectangle="55, 309, 506, 55" ElementType="InputBox" FriendlyName="'https://amzn.to/3B1QxPL'" FullSelectorArgument="&lt;webctrl id='amzn-ss-text-shortlink-textarea' tag='TEXTAREA' /&gt;" FuzzySelectorArgument="&lt;webctrl id='amzn-ss-text-shortlink-textarea' tag='TEXTAREA' type='' aaname='' /&gt;" Guid="66af42e4-c8b9-4bc3-8783-1d3f9e70f76b" InformativeScreenshot="9b4c8f2b046330dcef69526a72f12864.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='https://images-na.ssl-images-amazon.com/images/I/11EIQ5IGqaL._RC%7C01ZTHTZObnL.css,41wZkyTaWoL.css,31Y8m1dzTdL.css,013z33uKh2L.css,017DsKjNQJL.css,0131vqwP5UL.css,41EWOOlBJ9L.css,11TIuySqr6L.css,01ElnPiDxWL.css,11bGSgD5pDL.css,01Dm5eKVxwL.css,01IdKcBuAdL.c*' title='Amazon.com: Sassy Stacks of Circles Stacking Ring STEM Learning Toy, Age 6+ Months, Multi, 9 Piece Set : Toys &amp;amp; Games' /&gt;" SearchSteps="FuzzySelector">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="55, 279, 506, 20" ElementType="Text" FriendlyName="'Copy the'" FullSelectorArgument="&lt;webctrl parentid='amzn-ss-txt-success-msg' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='amzn-ss-txt-success-msg' tag='P' type='' aaname='Copy the generated link and paste it into your website. ' check:text='Copy the generated link and paste it into your website. Learn More' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NGetText.Target>
+                            <uix:NGetText.Text>
+                              <OutArgument x:TypeArguments="x:String">[BuyOnAmazonButtonLink]</OutArgument>
+                            </uix:NGetText.Text>
+                          </uix:NGetText>
+                          <ui:ReadTextFile Content="[BigestPostHtmlCodeFormat]" DisplayName="Read Text File" FileName="Data\BigestPostHtmlCode.txt" sap:VirtualizedContainerService.HintSize="384,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_4" />
+                          <Assign sap:VirtualizedContainerService.HintSize="384,61" sap2010:WorkflowViewState.IdRef="Assign_7">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[BigestPostHtmlCodeFormat]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[BigestPostHtmlCodeFormat.Replace("PRODUCTNUMBER",Counter.ToString).Replace("PRODUCTNUMBER","1").Replace("PRODUCTNAME", ProductName).Replace("PRODUCTDISCRIPTION",ProductDiscription).Replace("PRODUCTIMAGEURL", ProductImageCode).Replace("PRODUCTBUYNOWLINK", BuyOnAmazonButtonLink).ToString]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </ActivityAction>
+                    </uix:NApplicationCard.Body>
+                    <uix:NApplicationCard.TargetApp>
+                      <uix:TargetApp Area="-8, -8, 1382, 744" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="f57b58c67e3527c1a5fceb8b2088e1b7.png" Selector="&lt;html app='chrome.exe' title='Amazon.com*' /&gt;" Url="[Product(&quot;Product Url&quot;).tostring]" />
+                    </uix:NApplicationCard.TargetApp>
+                  </uix:NApplicationCard>
+                  <ui:AppendLine DisplayName="Append Line" FileName="Data\HtmlFormatFile.txt" sap:VirtualizedContainerService.HintSize="460,134" sap2010:WorkflowViewState.IdRef="AppendLine_4" Text="[BigestPostHtmlCodeFormat]" UseDefaultEncoding="False" />
+                  <Assign sap:VirtualizedContainerService.HintSize="460,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[Counter]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[Counter +1]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+    </ui:ForEachRow>
+  </Sequence>
+</Activity>
